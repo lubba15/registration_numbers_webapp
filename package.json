@@ -1,24 +1,31 @@
 {
-  "name": "node-first-steps",
+  "name": "registration_numbers_webapp",
   "version": "1.0.0",
+  "description": "registraion number app",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "keywords": [],
-  "author": "Lubabalo Mkiva",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.1",
-    "chalk": "^1.1.3",
-    "express": "^4.15.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
     "express-flash": "0.0.2",
     "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.3",
-    "mongodb": "^2.2.31",
-    "mongoose": "^4.10.1"
+    "express-session": "^1.15.5",
+    "mongoose": "^4.11.9"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
   },
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lubba15/registration_numbers_webapp.git"
+  },
+  "author": "lubabalo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lubba15/registration_numbers_webapp/issues"
+  },
+  "homepage": "https://github.com/lubba15/registration_numbers_webapp#readme"
+}

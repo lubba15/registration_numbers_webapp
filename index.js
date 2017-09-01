@@ -48,7 +48,7 @@ app.get('/reset',regRoutes.reset);
 app.post('/reset',regRoutes.reset);
 
 
-const port = process.env.PORT || 3008;
+const port = process.env.PORT || 8080;
 
 app.listen(port, function() {
 console.log('Web app started on port : ' + port);
