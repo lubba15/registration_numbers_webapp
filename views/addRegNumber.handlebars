@@ -1,0 +1,43 @@
+<head>
+  <link rel="stylesheet" href="../css/registration_number.css">
+</head>
+
+
+<h1>Registration_Numbers_Webapp</h1>
+
+<body>
+  <form class="style" action="/addRegNumber" method="post">
+    <label for="name">Registration Number:</label>
+    <input type="text" name="regPlate" value="" placeholder="type registration Number" required="">
+    <button type="submit" name="bttn">Add!</button>
+  </form>
+
+  <form class "" action="/filter" method="post">
+    <input type="radio" name="plate" value="CA">Cape Town
+    <input type="radio" name="plate" value="CY">Bellville
+    <input type="radio" name="plate" value="CJ">Paarl
+    <button type="submit" name="filterbutton" require="">Show!</button>
+
+  </form>
+  <form class="" action="/showAll" method="post">
+    <button type="submit" name="show" value="">show All</button>
+  </form>
+  </form>
+  <form class="" action="/reset" method="post">
+    <button type="submit" name="Reset" value="">Rest</button>
+  </form>
+
+</body>
+<p>{{msg}}</p>
+
+<ul>
+  {{#each plates}}
+    <li> {{this.numberPlates}}</li>
+  {{/each}}
+</ul>
+<ul>
+  {{#each filter}}
+    <li> {{this.numberPlates}}</li>
+  {{/each}}
+</ul>
+{{message.error}}
