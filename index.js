@@ -1,4 +1,3 @@
-
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -15,42 +14,45 @@ const regRoutes = RegRoutes(models);
 const app = express();
 
 app.engine('handlebars', exphbs({
-defaultLayout: 'main'
+  defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 app.use(express.static('public'))
 
 
 app.use(bodyParser.urlencoded({
-extended: false
+  extended: false
 }))
 
 app.use(bodyParser.json())
 
 app.use(session({
-secret: 'keyboard cat',
-cookie: {
- maxAge: 60000 * 30
-}
+  secret: 'keyboard cat',
+  cookie: {
+    maxAge: 60000 * 30
+  }
 }));
 app.use(flash());
+app.get('/', function(req,res){
+  res.redirect('/addRegNumber')
+})
 
-app.get('/addRegNumber',regRoutes.home_screen);
-app.post('/addRegNumber',regRoutes.index);
+app.get('/addRegNumber', regRoutes.home_screen);
+app.post('/addRegNumber', regRoutes.index);
 
-app.get('/filter',regRoutes.filterAll);
-app.post('/filter',regRoutes.filterAll);
+app.get('/filter', regRoutes.filterAll);
+app.post('/filter', regRoutes.filterAll);
 
-app.get('/showAll',regRoutes.showAll);
-app.post('/showAll',regRoutes.showAll);
+app.get('/showAll', regRoutes.showAll);
+app.post('/showAll', regRoutes.showAll);
 
-app.get('/reset',regRoutes.reset);
-app.post('/reset',regRoutes.reset);
+app.get('/reset', regRoutes.reset);
+app.post('/reset', regRoutes.reset);
 
 
 const port = process.env.PORT || 8080;
 
 app.listen(port, function() {
-console.log('Web app started on port : ' + port);
+  console.log('Web app started on port : ' + port);
 
 });

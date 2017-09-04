@@ -8,8 +8,14 @@
 <body>
   <form class="style" action="/addRegNumber" method="post">
     <label for="name">Registration Number:</label>
-    <input type="text" name="regPlate" value="" placeholder="type registration Number" required="">
+    <input type="text" name="regPlate" value="" placeholder="type registration Number">
     <button type="submit" name="bttn">Add!</button>
+    <br>
+    <br>
+
+    {{messages.error}}
+    <br>
+    
   </form>
 
   <form class "" action="/filter" method="post">
@@ -29,7 +35,6 @@
 
 </body>
 <p>{{msg}}</p>
-
 <ul>
   {{#each plates}}
     <li> {{this.numberPlates}}</li>
@@ -40,4 +45,3 @@
     <li> {{this.numberPlates}}</li>
   {{/each}}
 </ul>
-{{message.error}}

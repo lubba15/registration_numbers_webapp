@@ -10,7 +10,7 @@ module.exports = function(models) {
     }
 
     if (!reg_number) {
-      // req.flash('error', 'textbox empty');
+      req.flash('error', 'Hi, Please fill in the text box..');
       res.render("addRegNumber");
     } else {
       models.Registration.findOne({
@@ -18,33 +18,42 @@ module.exports = function(models) {
       }, function(err, results) {
         if (err) {
           return done(err)
-        }
-        // console.log(results);
-      })
+        } else {
+          if (results) {
+            req.flash('error', 'Plate already exist!!!')
+            res.redirect('/')
+          } else {
 
-      models.Registration.create({
-        numberPlates: req.body.regPlate.toUpperCase()
-      }, function(err, results) {
-        if (err) {
-          return done(err)
-        }
+            // console.log(results);
 
-        if (results) {
-          models.Registration.find({},
-            function(err, results) {
+            // if (results === null) {
+            models.Registration.create({
+              numberPlates: req.body.regPlate.toUpperCase()
+            }, function(err, results) {
               if (err) {
                 return done(err)
               }
-              var data = {
-                plates: results
+
+              if (results) {
+                models.Registration.find({},
+                  function(err, results) {
+                    if (err) {
+                      return done(err)
+                    }
+                    var data = {
+                      plates: results
+                    }
+
+                    console.log(results);
+                    res.render('addRegNumber', data)
+                  })
               }
-              console.log(results);
-              res.render('addRegNumber', data)
+
             })
+
+          }
         }
-
       })
-
     }
   }
 
@@ -70,23 +79,25 @@ module.exports = function(models) {
   const showAll = function(req, res, done) {
     var reg_number = req.body.regPlate
     models.Registration.find({},
-       function(err,results) {
-         if (err) {
-           return done(err)
+      function(err, results) {
+        if (err) {
+          return done(err)
 
-         }
-  res.render('addRegNumber',{filter: results})
-    })
+        }
+        res.render('addRegNumber', {
+          filter: results
+        })
+      })
   }
 
-  const reset = function (req, res, done) {
+  const reset = function(req, res, done) {
     models.Registration.remove({},
-    function (err) {
-      if (err) {
-        return done(err)
-      }
-res.render('addRegNumber')
-    })
+      function(err) {
+        if (err) {
+          return done(err)
+        }
+        res.render('addRegNumber')
+      })
   }
   return {
     home_screen,
