@@ -7,8 +7,7 @@ const session = require('express-session');
 const RegRoutes = require("./registration");
 const Models = require('./models');
 
-const models = Models(process.env.MONGO_DB_URL || "mongodb://localhost/addRegNumber")
-const regRoutes = RegRoutes(models);
+const regRoutes = RegRoutes(Models);
 
 
 const app = express();
