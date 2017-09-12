@@ -23,9 +23,7 @@ module.exports = function(models) {
             req.flash('error', 'Plate already exist!!!')
             res.redirect('/')
           } else {
-
             // console.log(results);
-
             // if (results === null) {
             models.Registration.create({
               numberPlates: req.body.regPlate.toUpperCase()

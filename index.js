@@ -38,7 +38,7 @@ app.get('/', function(req,res){
 })
 
 app.get('/addRegNumber', regRoutes.home_screen);
-app.post('/addRegNumber', regRoutes.index);
+app.post('/addRegNumber', regRoutes.index)      ;
 
 app.get('/filter', regRoutes.filterAll);
 app.post('/filter', regRoutes.filterAll);
