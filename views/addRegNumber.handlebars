@@ -1,8 +1,10 @@
 <head>
+  <title>Registration Web App</title>
   <link rel="stylesheet" href="../css/registration_number.css">
+
 </head>
 
-<h1>Registration Numbers Webapp</h1>
+<h1>Registration Number Webapp</h1>
 
 <body>
   <form class="style" action="/addRegNumber" method="post">
@@ -10,9 +12,8 @@
     <input type="text" name="regPlate" value="" placeholder="type registration Number">
     <button type="submit" name="bttn">Add!</button>
     <br>
-    <br> {{messages.error}}
+    <br> <b>{{messages.error}}</b>
     <br>
-
   </form>
 
   <form class "" action="/filter" method="post">
@@ -20,12 +21,12 @@
     <input type="radio" name="plate" value="CY">Bellville
     <input type="radio" name="plate" value="CJ">Paarl
     <button type="submit" name="filterbutton" require="">Show!</button>
-
   </form>
+
   <form class="" action="/showAll" method="post">
     <button type="submit" name="show" value="">show All</button>
   </form>
-  </form>
+
   <form class="" action="/reset" method="post">
     <button type="submit" name="Reset" value="">Reset</button>
   </form>

@@ -36,16 +36,16 @@ app.use(flash());
 app.get('/', function(req,res){
   res.redirect('/addRegNumber')
 })
-
+//home_screen
 app.get('/addRegNumber', regRoutes.home_screen);
 app.post('/addRegNumber', regRoutes.index)      ;
-
+//filter
 app.get('/filter', regRoutes.filterAll);
 app.post('/filter', regRoutes.filterAll);
-
+//all Reg Numbers
 app.get('/showAll', regRoutes.showAll);
 app.post('/showAll', regRoutes.showAll);
-
+//reset page
 app.get('/reset', regRoutes.reset);
 app.post('/reset', regRoutes.reset);
 
